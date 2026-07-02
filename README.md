@@ -8,13 +8,14 @@
 > [`stable-3_5_0`](../../tree/stable-3_5_0) branch.
 
 A generic plugin for **Open Journal Systems (OJS)** that displays each article's
-**abstract views** and **downloads** (per-galley) on the article summary lists and on
-the article landing page.
+**abstract views** and **downloads** (per galley) on the article summary lists and on the
+article landing page.
 
-> Maintained by **[OJSBR](https://ojsbr.com.br)**. Rewritten and adapted from the
-> original OJS 3.3 plugin by **STI FFLCH** and **ABCD/USP**.
+> **Maintained by [OJSBR](https://ojsbr.com.br).** Rewritten and adapted from an original
+> OJS 3.3 access/downloads counter by **STI-FFLCH/USP** and **ABCD/USP**. See the full
+> [Credits & authorship](#credits--authorship) section below.
 
-## Compatibility / branches
+## Compatibility & branches
 
 | OJS version | Branch | Plugin release |
 |-------------|--------|----------------|
@@ -23,27 +24,32 @@ the article landing page.
 
 ## Installation
 
-Install via **Settings → Website → Plugins → Upload A New Plugin**, or extract the
-folder into `plugins/generic/` (giving `plugins/generic/viewcounter/`). Then enable
-**View counter** under the *Generic* plugins list.
+Install via **Settings → Website → Plugins → Upload A New Plugin**, or extract the folder
+into `plugins/generic/` (giving `plugins/generic/viewcounter/`). Then enable **View
+counter** under the *Generic* plugins list.
 
 ## Configuration
 
-Go to **Settings → Website → Plugins → View counter → Settings** and choose whether to
-show the counters in the summary lists and/or on the article landing page.
+Go to **Settings → Website → Plugins → View counter → Settings** and choose whether to show
+the counters in the summary lists and/or on the article landing page. On OJS 3.4 the counts
+use `$article->getViews()` and `$galley->getViews()`.
 
-## Notes (OJS 3.4)
+## Credits & authorship
 
-- PSR-4 namespaced class `APP\plugins\generic\viewcounter\ViewcounterPlugin`
-  (the class name must be `ucfirst(directory)+Plugin` for 3.4 autoload).
-- Uses `PKP\plugins\Hook` (the 3.3 `HookRegistry` was replaced).
-- No `index.php` — OJS 3.4 autoloads the class via `version.xml`.
-- Templates extend the native OJS 3.4 templates, injecting the counters
-  (`$article->getViews()` and `$galley->getViews()`).
+- **Maintained by** [OJSBR](https://ojsbr.com.br) — rewrite and adaptation to OJS 3.4/3.5.
+- **Original work:** OJS 3.3 access/downloads counter by **STI-FFLCH/USP** (Seção Técnica
+  de Informática da FFLCH/USP) and **ABCD/USP** (Agência de Bibliotecas e Coleções Digitais
+  da USP). See the FFLCH open-source repositories at <https://github.com/fflch>.
+- Distributed under the **GNU GPL v3**, consistent with the original licensing.
+
+## Contributing
+
+Issues and pull requests are welcome. Please target the branch matching the OJS version you
+are working against.
 
 ## License
 
-Distributed under the **GNU GPL v3**. See [`LICENSE`](LICENSE).
+Distributed under the **GNU GPL v3**. See [`LICENSE`](LICENSE) and `docs/COPYING`.
 
 ---
 
@@ -53,11 +59,12 @@ Distributed under the **GNU GPL v3**. See [`LICENSE`](LICENSE).
 > [`stable-3_5_0`](../../tree/stable-3_5_0).
 
 Plugin genérico para o **Open Journal Systems (OJS)** que mostra as **visualizações do
-resumo** e os **downloads** (por galé) de cada artigo, nas listas de resumo e na página
-do artigo.
+resumo** e os **downloads** (por galé) de cada artigo, nas listas de resumo e na página do
+artigo.
 
-> Mantido pela **[OJSBR](https://ojsbr.com.br)**. Reescrito e adaptado a partir do
-> plugin original (OJS 3.3) da **STI FFLCH** e do **ABCD/USP**.
+> **Mantido pela [OJSBR](https://ojsbr.com.br).** Reescrito e adaptado a partir de um
+> contador de acessos/downloads original do OJS 3.3 da **STI-FFLCH/USP** e do **ABCD/USP**.
+> Veja a seção [Créditos e autoria](#créditos-e-autoria) abaixo.
 
 ### Instalação
 
@@ -65,14 +72,13 @@ Instale em **Configurações → Website → Plugins → Enviar um novo plugin**
 pasta em `plugins/generic/` (ficando `plugins/generic/viewcounter/`). Depois ative o
 **Contador de visualizações** na lista de plugins *Genéricos*.
 
-### Notas (OJS 3.4)
+### Créditos e autoria
 
-- Classe com namespace PSR-4 `APP\plugins\generic\viewcounter\ViewcounterPlugin`.
-- `HookRegistry` → `Hook` (`PKP\plugins\Hook`).
-- Sem `index.php` (3.4 usa autoload via `version.xml`).
-- Templates baseados nos nativos do OJS 3.4, com os contadores injetados
-  (`$article->getViews()` e `$galley->getViews()`).
+- **Mantido pela** [OJSBR](https://ojsbr.com.br) — reescrita e adaptação para OJS 3.4/3.5.
+- **Trabalho original:** contador de acessos/downloads do OJS 3.3 da **STI-FFLCH/USP** e do
+  **ABCD/USP**. Repositórios abertos da FFLCH: <https://github.com/fflch>.
+- Distribuído sob a **GNU GPL v3**, coerente com o licenciamento original.
 
 ### Licença
 
-Distribuído sob a **GNU GPL v3**. Veja [`LICENSE`](LICENSE).
+Distribuído sob a **GNU GPL v3**. Veja [`LICENSE`](LICENSE) e `docs/COPYING`.
