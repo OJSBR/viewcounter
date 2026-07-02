@@ -1,0 +1,24 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+
+msgid "plugins.generic.viewcounter.displayName"
+msgstr "View counter"
+
+msgid "plugins.generic.viewcounter.description"
+msgstr ""
+"Displays the number of views and downloads of articles, in the article "
+"summary (lists) and on the article details page. Rewritten and adapted for "
+"OJS 3.4 by OJSBR. Original plugin by STI FFLCH and ABCD/USP."
+
+msgid "plugins.generic.viewcounter.settings"
+msgstr "View counter settings"
+
+msgid "plugins.generic.viewcounter.settings.showInSummary"
+msgstr "Show in the article summary (article lists)"
+
+msgid "plugins.generic.viewcounter.settings.showInDetails"
+msgstr "Show on the article details page"
