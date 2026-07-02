@@ -5,13 +5,14 @@
 [![License](https://img.shields.io/badge/license-GPL--3.0-lightgrey)](LICENSE)
 
 A generic plugin for **Open Journal Systems (OJS)** that displays each article's
-**abstract views** and **downloads** (sum of galleys) on the article summary lists
-and on the article landing page — discreetly, as icons with a tooltip near the title.
+**abstract views** and **downloads** (sum of galleys) on the article summary lists and on
+the article landing page — discreetly, as icons with a tooltip near the title.
 
-> Maintained by **[OJSBR](https://ojsbr.com.br)**. Rewritten and adapted from the
-> original OJS 3.3 plugin by **STI FFLCH** and **ABCD/USP**.
+> **Maintained by [OJSBR](https://ojsbr.com.br).** Rewritten and adapted from an original
+> OJS 3.3 access/downloads counter by **STI-FFLCH/USP** and **ABCD/USP**. See the full
+> [Credits & authorship](#credits--authorship) section below.
 
-## Compatibility / branches
+## Compatibility & branches
 
 | OJS version | Branch | Plugin release |
 |-------------|--------|----------------|
@@ -36,36 +37,41 @@ Go to **Settings → Website → Plugins → View counter → Settings**:
 
 Both are enabled by default. Saving clears the template cache automatically.
 
-## Compatibility notes (OJS 3.5)
+On OJS 3.5, counts are computed via the statistics service (`publicationStats`) and exposed
+to Smarty through `{viewcounterStats}`, since `Submission::getViews()` /
+`Galley::getViews()` were removed; queries are wrapped in `try/catch` and fall back to `0`.
 
-- Namespaced class `APP\plugins\generic\viewcounter\ViewcounterPlugin` (PSR-4 autoload).
-- In OJS 3.5 `Submission::getViews()` and `Galley::getViews()` were removed. Counts are
-  computed by the plugin via the statistics service (`publicationStats`) and exposed to
-  Smarty through the `{viewcounterStats}` function. Queries are wrapped in `try/catch`:
-  if statistics are unavailable it shows `0` instead of breaking the page.
+## Credits & authorship
+
+- **Maintained by** [OJSBR](https://ojsbr.com.br) — rewrite and adaptation to OJS 3.4/3.5.
+- **Original work:** OJS 3.3 access/downloads counter by **STI-FFLCH/USP** (Seção Técnica
+  de Informática da FFLCH/USP) and **ABCD/USP** (Agência de Bibliotecas e Coleções Digitais
+  da USP). See the FFLCH open-source repositories at <https://github.com/fflch>.
+- Distributed under the **GNU GPL v3**, consistent with the original licensing.
 
 ## Contributing
 
-Issues and pull requests are welcome. Please target the branch matching the OJS version
-you are working against.
+Issues and pull requests are welcome. Please target the branch matching the OJS version you
+are working against.
 
 ## License
 
-Distributed under the **GNU GPL v3**. See [`LICENSE`](LICENSE).
+Distributed under the **GNU GPL v3**. See [`LICENSE`](LICENSE) and `docs/COPYING`.
 
 ---
 
 ## 🇧🇷 Português
 
 Plugin genérico para o **Open Journal Systems (OJS)** que mostra a quantidade de
-**visualizações do resumo** e de **downloads** (soma das galés) de cada artigo, nas
-listas de resumo e na página do artigo — de forma discreta, com ícones e tooltip
-próximos ao título.
+**visualizações do resumo** e de **downloads** (soma das galés) de cada artigo, nas listas
+de resumo e na página do artigo — de forma discreta, com ícones e tooltip próximos ao
+título.
 
-> Mantido pela **[OJSBR](https://ojsbr.com.br)**. Reescrito e adaptado a partir do
-> plugin original (OJS 3.3) da **STI FFLCH** e do **ABCD/USP**.
+> **Mantido pela [OJSBR](https://ojsbr.com.br).** Reescrito e adaptado a partir de um
+> contador de acessos/downloads original do OJS 3.3 da **STI-FFLCH/USP** e do **ABCD/USP**.
+> Veja a seção [Créditos e autoria](#créditos-e-autoria) abaixo.
 
-### Compatibilidade / branches
+### Compatibilidade e branches
 
 | Versão do OJS | Branch | Release do plugin |
 |---------------|--------|-------------------|
@@ -80,13 +86,18 @@ pasta em `plugins/generic/` (ficando `plugins/generic/viewcounter/`). Depois ati
 
 ### Configuração
 
-Em **Configurações → Website → Plugins → Contador de visualizações → Configurações**:
+Em **Configurações → Website → Plugins → Contador de visualizações → Configurações**,
+escolha exibir no resumo (listas) e/ou na página do artigo (padrão: ambos ativos). Ao
+salvar, o cache de templates é limpo automaticamente.
 
-- **Exibir no resumo** (listas de artigos)
-- **Exibir na página de metadados do artigo**
+### Créditos e autoria
 
-(Padrão: ambos ativos.) Ao salvar, o cache de templates é limpo automaticamente.
+- **Mantido pela** [OJSBR](https://ojsbr.com.br) — reescrita e adaptação para OJS 3.4/3.5.
+- **Trabalho original:** contador de acessos/downloads do OJS 3.3 da **STI-FFLCH/USP**
+  (Seção Técnica de Informática da FFLCH/USP) e do **ABCD/USP** (Agência de Bibliotecas e
+  Coleções Digitais da USP). Repositórios abertos da FFLCH: <https://github.com/fflch>.
+- Distribuído sob a **GNU GPL v3**, coerente com o licenciamento original.
 
 ### Licença
 
-Distribuído sob a **GNU GPL v3**. Veja [`LICENSE`](LICENSE).
+Distribuído sob a **GNU GPL v3**. Veja [`LICENSE`](LICENSE) e `docs/COPYING`.
