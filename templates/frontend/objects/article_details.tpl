@@ -117,10 +117,14 @@
 							</span>
 							{if count($author->getAffiliations()) > 0}
 								<span class="affiliation">
-									{foreach name="affiliations" from=$author->getAffiliations() item="affiliation"}
-										<span>{$affiliation->getLocalizedName()|escape}</span>
-										{if $affiliation->getRor()}<a href="{$affiliation->getRor()|escape}">{$rorIdIcon}</a>{/if}
-										{if !$smarty.foreach.affiliations.last}{translate key="common.commaListSeparator"}{/if}
+									{assign var="renderedAffiliation" value=false}
+									{foreach from=$author->getAffiliations() item="affiliation"}
+										{if $affiliation->getLocalizedName() || $affiliation->getRor()}
+											{if $renderedAffiliation}{translate key="common.commaListSeparator"}{/if}
+											{if $affiliation->getLocalizedName()}<span>{$affiliation->getLocalizedName()|escape}</span>{/if}
+											{if $affiliation->getRor()}<a href="{$affiliation->getRor()|escape}">{$rorIdIcon}</a>{/if}
+											{assign var="renderedAffiliation" value=true}
+										{/if}
 									{/foreach}
 								</span>
 							{/if}
@@ -165,7 +169,6 @@
 				</section>
 			{/if}
 
-
 			{* Keywords *}
 			{if !empty($publication->getLocalizedData('keywords'))}
 			<section class="item keywords">
@@ -175,7 +178,7 @@
 				</h2>
 				<span class="value">
 					{foreach name="keywords" from=$publication->getLocalizedData('keywords') item="keyword"}
-						{$keyword|escape}{if !$smarty.foreach.keywords.last}{translate key="common.commaListSeparator"}{/if}
+						{$keyword.name|escape}{if !$smarty.foreach.keywords.last}{translate key="common.commaListSeparator"}{/if}					
 					{/foreach}
 				</span>
 			</section>
@@ -247,13 +250,13 @@
 			{/if}
 
 			{* References *}
-			{if $parsedCitations || $publication->getData('citationsRaw')}
+			{if count($parsedCitations) || (string) $publication->getData('citationsRaw')}
 				<section class="item references">
 					<h2 class="label">
 						{translate key="submission.citations"}
 					</h2>
 					<div class="value">
-						{if $parsedCitations}
+						{if count($parsedCitations)}
 							{foreach from=$parsedCitations item="parsedCitation"}
 								<p>{$parsedCitation->getCitationWithLinks()|strip_unsafe_html} {call_hook name="Templates::Article::Details::Reference" citation=$parsedCitation}</p>
 							{/foreach}
@@ -359,7 +362,7 @@
 
 			{* Data Availability Statement *}
 			{if $publication->getLocalizedData('dataAvailability')}
-				<section class="item dataAvailability">
+				<section class="item dataAvailability" id="data-availability-statement">
 					<h2 class="label">{translate key="submission.dataAvailability"}</h2>
 					{$publication->getLocalizedData('dataAvailability')|strip_unsafe_html}
 				</section>
