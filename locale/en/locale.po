@@ -5,14 +5,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en\n"
 
+
 msgid "plugins.generic.viewcounter.displayName"
 msgstr "View counter"
 
 msgid "plugins.generic.viewcounter.description"
-msgstr ""
-"Displays the number of views and downloads of articles, in the article "
-"summary (lists) and on the article details page. Rewritten and adapted for "
-"OJS 3.5 by OJSBR. Original plugin by STI FFLCH and ABCD/USP."
+msgstr "Displays the number of views and downloads of articles, in the article summary (lists) and on the article details page. Rewritten and adapted for OJS 3.5 by OJSBR. Original plugin by STI FFLCH and ABCD/USP."
 
 msgid "plugins.generic.viewcounter.settings"
 msgstr "View counter settings"

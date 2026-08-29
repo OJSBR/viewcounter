@@ -1,0 +1,30 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: gl\n"
+
+
+msgid "plugins.generic.viewcounter.displayName"
+msgstr "Contador de visualizacións"
+
+msgid "plugins.generic.viewcounter.description"
+msgstr "Amosa o número de visualizacións e descargas dos artigos, no resumo do artigo (listas) e na páxina de detalle. Reescrito e adaptado para OJS 3.5 por OJSBR. Complemento orixinal de STI FFLCH e ABCD/USP."
+
+msgid "plugins.generic.viewcounter.settings"
+msgstr "Configuración do contador de visualizacións"
+
+msgid "plugins.generic.viewcounter.settings.showInSummary"
+msgstr "Amosar no resumo do artigo (listas de artigos)"
+
+msgid "plugins.generic.viewcounter.settings.showInDetails"
+msgstr "Amosar na páxina de detalle do artigo"
+
+msgid "plugins.generic.viewcounter.views"
+msgstr "Visualizacións"
+
+msgid "plugins.generic.viewcounter.downloads"
+msgstr "Descargas"

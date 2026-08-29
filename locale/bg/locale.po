@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: bg\n"
+
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.displayName"
+msgstr "Брояч на преглеждания"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.description"
+msgstr "Показва броя преглеждания и изтегляния на статиите — в резюмето на статията (списъци) и на страницата с детайли. Пренаписано и адаптирано за OJS 3.5 от OJSBR. Оригиналната приставка е на STI FFLCH и ABCD/USP."
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings"
+msgstr "Настройки на брояча на преглеждания"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInSummary"
+msgstr "Показване в резюмето на статията (списъци със статии)"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInDetails"
+msgstr "Показване на страницата с детайли на статията"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.views"
+msgstr "Преглеждания"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.downloads"
+msgstr "Изтегляния"

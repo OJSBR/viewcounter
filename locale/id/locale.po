@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: id\n"
+
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.displayName"
+msgstr "Penghitung tampilan"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.description"
+msgstr "Menampilkan jumlah tampilan dan unduhan artikel, pada ringkasan artikel (daftar) dan pada halaman detail. Ditulis ulang dan disesuaikan untuk OJS 3.5 oleh OJSBR. Plugin asli oleh STI FFLCH dan ABCD/USP."
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings"
+msgstr "Pengaturan penghitung tampilan"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInSummary"
+msgstr "Tampilkan di ringkasan artikel (daftar artikel)"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInDetails"
+msgstr "Tampilkan di halaman detail artikel"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.views"
+msgstr "Tampilan"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.downloads"
+msgstr "Unduhan"

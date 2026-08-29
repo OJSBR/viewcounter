@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: cs\n"
+
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.displayName"
+msgstr "Počítadlo zobrazení"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.description"
+msgstr "Zobrazuje počet zobrazení a stažení článků v přehledu článku (seznamy) i na stránce s podrobnostmi. Přepsáno a upraveno pro OJS 3.5 organizací OJSBR. Původní zásuvný modul od STI FFLCH a ABCD/USP."
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings"
+msgstr "Nastavení počítadla zobrazení"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInSummary"
+msgstr "Zobrazit v přehledu článku (seznamy článků)"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInDetails"
+msgstr "Zobrazit na stránce s podrobnostmi o článku"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.views"
+msgstr "Zobrazení"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.downloads"
+msgstr "Stažení"

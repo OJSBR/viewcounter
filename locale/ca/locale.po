@@ -1,0 +1,30 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: ca\n"
+
+
+msgid "plugins.generic.viewcounter.displayName"
+msgstr "Comptador de visualitzacions"
+
+msgid "plugins.generic.viewcounter.description"
+msgstr "Mostra el nombre de visualitzacions i baixades dels articles, al resum de l'article (llistes) i a la pàgina de detall. Reescrit i adaptat per a l'OJS 3.5 per OJSBR. Connector original de l'STI FFLCH i ABCD/USP."
+
+msgid "plugins.generic.viewcounter.settings"
+msgstr "Configuració del comptador de visualitzacions"
+
+msgid "plugins.generic.viewcounter.settings.showInSummary"
+msgstr "Mostra al resum de l'article (llistes d'articles)"
+
+msgid "plugins.generic.viewcounter.settings.showInDetails"
+msgstr "Mostra a la pàgina de detall de l'article"
+
+msgid "plugins.generic.viewcounter.views"
+msgstr "Visualitzacions"
+
+msgid "plugins.generic.viewcounter.downloads"
+msgstr "Baixades"

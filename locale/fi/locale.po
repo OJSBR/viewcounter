@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: fi\n"
+
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.displayName"
+msgstr "Katselulaskuri"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.description"
+msgstr "Näyttää artikkelien katselu- ja latausmäärät artikkelin tiivistelmässä (listoissa) ja tietosivulla. OJSBR on kirjoittanut uudelleen ja sovittanut OJS 3.5:een. Alkuperäinen lisäosa: STI FFLCH ja ABCD/USP."
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings"
+msgstr "Katselulaskurin asetukset"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInSummary"
+msgstr "Näytä artikkelin tiivistelmässä (artikkelilistat)"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInDetails"
+msgstr "Näytä artikkelin tietosivulla"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.views"
+msgstr "Katselut"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.downloads"
+msgstr "Lataukset"
