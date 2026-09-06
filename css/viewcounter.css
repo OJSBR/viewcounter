@@ -1,0 +1,52 @@
+/**
+ * plugins/generic/viewcounter/css/viewcounter.css
+ *
+ * Copyright (c) 2024-2026 OJSBR (https://ojsbr.com.br)
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * The badge is rendered at the hook location (end of the article summary /
+ * inside the article main entry). viewcounter.js moves it next to the title
+ * when the expected markup exists; these rules cover both positions.
+ */
+.viewcounter-stats {
+	display: inline-flex;
+	flex: 0 0 auto;
+	gap: 14px;
+	align-items: center;
+	color: #6b7280;
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 1.6;
+	white-space: nowrap;
+}
+.viewcounter-stats--summary {
+	font-size: 13px;
+}
+.viewcounter-stats > span {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	cursor: default;
+}
+.viewcounter-stats svg {
+	flex: 0 0 auto;
+}
+
+/* Title as host (after relocation by viewcounter.js). */
+.viewcounter-title-host {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 12px;
+}
+.viewcounter-title-host > a {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+/* Fallback position: hook location, as a small line of its own. */
+.obj_article_summary > .viewcounter-stats,
+.main_entry > .viewcounter-stats {
+	display: flex;
+	margin: 0.5em 0;
+}

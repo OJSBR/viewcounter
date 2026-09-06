@@ -1,0 +1,30 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: fr_CA\n"
+
+
+msgid "plugins.generic.viewcounter.displayName"
+msgstr "Compteur de consultations"
+
+msgid "plugins.generic.viewcounter.description"
+msgstr "Affiche le nombre de consultations et de téléchargements des articles, dans le sommaire de l'article (listes) et sur la page de détail. Réécrit et adapté pour OJS 3.4/3.5 par OJSBR. Module d'origine du STI FFLCH et d'ABCD/USP."
+
+msgid "plugins.generic.viewcounter.settings"
+msgstr "Réglages du compteur de consultations"
+
+msgid "plugins.generic.viewcounter.settings.showInSummary"
+msgstr "Afficher dans le sommaire de l'article (listes d'articles)"
+
+msgid "plugins.generic.viewcounter.settings.showInDetails"
+msgstr "Afficher sur la page de détail de l'article"
+
+msgid "plugins.generic.viewcounter.views"
+msgstr "Consultations"
+
+msgid "plugins.generic.viewcounter.downloads"
+msgstr "Téléchargements"

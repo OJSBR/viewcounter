@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: uk\n"
+
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.displayName"
+msgstr "Лічильник переглядів"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.description"
+msgstr "Показує кількість переглядів і завантажень статей — у короткому описі статті (списки) та на сторінці статті. Переписано й адаптовано для OJS 3.4/3.5 командою OJSBR. Початковий модуль — STI FFLCH та ABCD/USP."
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings"
+msgstr "Налаштування лічильника переглядів"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInSummary"
+msgstr "Показувати в короткому описі статті (списки статей)"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInDetails"
+msgstr "Показувати на сторінці статті"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.views"
+msgstr "Перегляди"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.downloads"
+msgstr "Завантаження"

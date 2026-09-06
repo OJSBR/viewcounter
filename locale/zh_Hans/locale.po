@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: zh_Hans\n"
+
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.displayName"
+msgstr "浏览计数器"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.description"
+msgstr "在文章摘要（列表）和文章详情页显示文章的浏览量与下载量。由 OJSBR 为 OJS 3.4/3.5 重写并适配。原始插件由 STI FFLCH 与 ABCD/USP 开发。"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings"
+msgstr "浏览计数器设置"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInSummary"
+msgstr "在文章摘要（文章列表）中显示"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInDetails"
+msgstr "在文章详情页显示"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.views"
+msgstr "浏览量"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.downloads"
+msgstr "下载量"

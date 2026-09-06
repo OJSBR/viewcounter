@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: sv\n"
+
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.displayName"
+msgstr "Visningsräknare"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.description"
+msgstr "Visar antalet visningar och nedladdningar av artiklar, i artikelsammanfattningen (listor) och på detaljsidan. Omskrivet och anpassat för OJS 3.4/3.5 av OJSBR. Ursprungligt tillägg av STI FFLCH och ABCD/USP."
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings"
+msgstr "Inställningar för visningsräknare"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInSummary"
+msgstr "Visa i artikelsammanfattningen (artikellistor)"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInDetails"
+msgstr "Visa på artikelns detaljsida"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.views"
+msgstr "Visningar"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.downloads"
+msgstr "Nedladdningar"

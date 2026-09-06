@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: el\n"
+
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.displayName"
+msgstr "Μετρητής προβολών"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.description"
+msgstr "Εμφανίζει τον αριθμό προβολών και λήψεων των άρθρων, στη σύνοψη του άρθρου (λίστες) και στη σελίδα λεπτομερειών. Ξαναγράφτηκε και προσαρμόστηκε για το OJS 3.4/3.5 από την OJSBR. Αρχικό πρόσθετο από STI FFLCH και ABCD/USP."
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings"
+msgstr "Ρυθμίσεις μετρητή προβολών"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInSummary"
+msgstr "Εμφάνιση στη σύνοψη του άρθρου (λίστες άρθρων)"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInDetails"
+msgstr "Εμφάνιση στη σελίδα λεπτομερειών του άρθρου"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.views"
+msgstr "Προβολές"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.downloads"
+msgstr "Λήψεις"

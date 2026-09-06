@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: nb_NO\n"
+
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.displayName"
+msgstr "Visningsteller"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.description"
+msgstr "Viser antall visninger og nedlastinger av artikler, i artikkelsammendraget (lister) og på detaljsiden. Skrevet om og tilpasset OJS 3.4/3.5 av OJSBR. Opprinnelig tillegg fra STI FFLCH og ABCD/USP."
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings"
+msgstr "Innstillinger for visningsteller"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInSummary"
+msgstr "Vis i artikkelsammendraget (artikkellister)"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInDetails"
+msgstr "Vis på artikkelens detaljside"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.views"
+msgstr "Visninger"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.downloads"
+msgstr "Nedlastinger"

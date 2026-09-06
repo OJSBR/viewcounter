@@ -3,14 +3,13 @@
 /**
  * @file ViewcounterSettingsForm.php
  *
- * Formulário de configurações do plugin View counter (OJSBR / OJS 3.4).
+ * Settings form of the View counter plugin (OJSBR).
  *
  * @class ViewcounterSettingsForm
  */
 
 namespace APP\plugins\generic\viewcounter;
 
-use APP\core\Application;
 use APP\template\TemplateManager;
 use PKP\form\Form;
 use PKP\form\validation\FormValidatorCSRF;
@@ -61,10 +60,6 @@ class ViewcounterSettingsForm extends Form
     {
         $this->plugin->updateSetting($this->contextId, 'showInSummary', (bool) $this->getData('showInSummary'), 'bool');
         $this->plugin->updateSetting($this->contextId, 'showInDetails', (bool) $this->getData('showInDetails'), 'bool');
-
-        // O override troca qual arquivo o Smarty usa; limpar o cache compilado
-        // garante que o novo local de exibição passe a valer imediatamente.
-        TemplateManager::getManager(Application::get()->getRequest())->clearTemplateCache();
 
         parent::execute(...$functionArgs);
     }

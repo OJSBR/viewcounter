@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: ar\n"
+
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.displayName"
+msgstr "عدّاد المشاهدات"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.description"
+msgstr "يعرض عدد مشاهدات المقالات وتنزيلاتها، في ملخص المقال (القوائم) وفي صفحة تفاصيله. أعادت OJSBR كتابته وتكييفه لـ OJS 3.4/3.5. الملحق الأصلي من STI FFLCH و ABCD/USP."
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings"
+msgstr "إعدادات عدّاد المشاهدات"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInSummary"
+msgstr "العرض في ملخص المقال (قوائم المقالات)"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInDetails"
+msgstr "العرض في صفحة تفاصيل المقال"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.views"
+msgstr "المشاهدات"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.downloads"
+msgstr "التنزيلات"

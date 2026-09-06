@@ -1,0 +1,34 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: OJSBR <eder@sotto.com.br>\n"
+"Language-Team: OJSBR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-07-16T00:00:00+00:00\n"
+"PO-Revision-Date: 2026-07-16T00:00:00+00:00\n"
+"Language: it\n"
+
+
+msgid "plugins.generic.viewcounter.displayName"
+msgstr "Contatore di visualizzazioni"
+
+msgid "plugins.generic.viewcounter.description"
+msgstr "Mostra il numero di visualizzazioni e download degli articoli, nel sommario dell'articolo (elenchi) e nella pagina dei dettagli dell'articolo. Riscritto e adattato per OJS 3.4/3.5 da OJSBR. Plugin originale di STI FFLCH e ABCD/USP."
+
+msgid "plugins.generic.viewcounter.settings"
+msgstr "Impostazioni del contatore di visualizzazioni"
+
+msgid "plugins.generic.viewcounter.settings.showInSummary"
+msgstr "Mostra nel sommario dell'articolo (elenchi di articoli)"
+
+msgid "plugins.generic.viewcounter.settings.showInDetails"
+msgstr "Mostra nella pagina dei dettagli dell'articolo"
+
+msgid "plugins.generic.viewcounter.views"
+msgstr "Visualizzazioni"
+
+msgid "plugins.generic.viewcounter.downloads"
+msgstr "Download"

@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: hy\n"
+
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.displayName"
+msgstr "Դիտումների հաշվիչ"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.description"
+msgstr "Ցուցադրում է հոդվածների դիտումների և ներբեռնումների թիվը՝ հոդվածի ամփոփման մեջ (ցանկերում) և մանրամասների էջում։ Վերաշարադրվել և հարմարեցվել է OJS 3.4/3.5-ին OJSBR-ի կողմից։ Սկզբնական հավելվածը՝ STI FFLCH և ABCD/USP։"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings"
+msgstr "Դիտումների հաշվիչի կարգավորումներ"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInSummary"
+msgstr "Ցուցադրել հոդվածի ամփոփման մեջ (հոդվածների ցանկեր)"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInDetails"
+msgstr "Ցուցադրել հոդվածի մանրամասների էջում"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.views"
+msgstr "Դիտումներ"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.downloads"
+msgstr "Ներբեռնումներ"

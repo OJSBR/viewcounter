@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: ro\n"
+
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.displayName"
+msgstr "Contor de vizualizări"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.description"
+msgstr "Afișează numărul de vizualizări și descărcări ale articolelor, în sumarul articolului (liste) și pe pagina de detalii. Rescris și adaptat pentru OJS 3.4/3.5 de OJSBR. Modul original de la STI FFLCH și ABCD/USP."
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings"
+msgstr "Setările contorului de vizualizări"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInSummary"
+msgstr "Afișează în sumarul articolului (liste de articole)"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInDetails"
+msgstr "Afișează pe pagina de detalii a articolului"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.views"
+msgstr "Vizualizări"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.downloads"
+msgstr "Descărcări"

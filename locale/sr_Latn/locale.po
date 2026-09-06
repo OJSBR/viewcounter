@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: sr_Latn\n"
+
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.displayName"
+msgstr "Brojač pregleda"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.description"
+msgstr "Prikazuje broj pregleda i preuzimanja članaka, u pregledu članka (liste) i na stranici sa detaljima. Za OJS 3.4/3.5 iznova napisao i prilagodio OJSBR. Originalni dodatak: STI FFLCH i ABCD/USP."
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings"
+msgstr "Podešavanja brojača pregleda"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInSummary"
+msgstr "Prikaži u pregledu članka (liste članaka)"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInDetails"
+msgstr "Prikaži na stranici sa detaljima članka"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.views"
+msgstr "Pregledi"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.downloads"
+msgstr "Preuzimanja"

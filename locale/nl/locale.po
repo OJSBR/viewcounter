@@ -3,26 +3,28 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: nl\n"
 
 
 msgid "plugins.generic.viewcounter.displayName"
-msgstr "Contador de visualizações"
+msgstr "Weergaveteller"
 
 msgid "plugins.generic.viewcounter.description"
-msgstr "Exibe a quantidade de visualizações e downloads dos artigos, no resumo (listas) e na página de metadados do artigo. Reescrito e adaptado para o OJS 3.4/3.5 pela OJSBR. Plugin original de STI FFLCH e ABCD/USP."
+msgstr "Toont het aantal weergaven en downloads van artikelen, in het artikeloverzicht (lijsten) en op de detailpagina. Herschreven en aangepast voor OJS 3.4/3.5 door OJSBR. Oorspronkelijke plug-in van STI FFLCH en ABCD/USP."
 
 msgid "plugins.generic.viewcounter.settings"
-msgstr "Configurações do contador"
+msgstr "Instellingen weergaveteller"
 
 msgid "plugins.generic.viewcounter.settings.showInSummary"
-msgstr "Exibir no resumo (listas de artigos)"
+msgstr "Weergeven in het artikeloverzicht (artikellijsten)"
 
 msgid "plugins.generic.viewcounter.settings.showInDetails"
-msgstr "Exibir na página de metadados do artigo"
+msgstr "Weergeven op de artikeldetailpagina"
 
 msgid "plugins.generic.viewcounter.views"
-msgstr "Visualizações"
+msgstr "Weergaven"
 
 msgid "plugins.generic.viewcounter.downloads"
 msgstr "Downloads"

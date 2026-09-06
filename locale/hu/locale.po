@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: hu\n"
+
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.displayName"
+msgstr "Megtekintésszámláló"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.description"
+msgstr "Megjeleníti a cikkek megtekintéseinek és letöltéseinek számát a cikk összefoglalójában (listákban) és a részletező oldalon. Az OJSBR írta újra és igazította az OJS 3.4/3.5-höz. Az eredeti bővítmény az STI FFLCH és az ABCD/USP munkája."
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings"
+msgstr "Megtekintésszámláló beállításai"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInSummary"
+msgstr "Megjelenítés a cikk összefoglalójában (cikklisták)"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInDetails"
+msgstr "Megjelenítés a cikk részletező oldalán"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.views"
+msgstr "Megtekintések"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.downloads"
+msgstr "Letöltések"

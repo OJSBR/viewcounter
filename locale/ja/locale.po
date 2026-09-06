@@ -1,0 +1,37 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: ja\n"
+
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.displayName"
+msgstr "閲覧カウンター"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.description"
+msgstr "論文の閲覧数とダウンロード数を、論文の概要（一覧）と詳細ページに表示します。OJSBR が OJS 3.4/3.5 向けに書き直し、移植しました。オリジナルのプラグインは STI FFLCH および ABCD/USP によるものです。"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings"
+msgstr "閲覧カウンターの設定"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInSummary"
+msgstr "論文の概要（一覧）に表示する"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.settings.showInDetails"
+msgstr "論文詳細ページに表示する"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.views"
+msgstr "閲覧数"
+
+#, fuzzy
+msgid "plugins.generic.viewcounter.downloads"
+msgstr "ダウンロード数"
