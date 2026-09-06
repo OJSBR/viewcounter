@@ -14,7 +14,7 @@ msgstr "Licznik wyświetleń"
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.description"
-msgstr "Wyświetla liczbę wyświetleń i pobrań artykułów — w podsumowaniu artykułu (listy) oraz na stronie szczegółów. Napisane od nowa i dostosowane do OJS 3.5 przez OJSBR. Pierwotna wtyczka autorstwa STI FFLCH i ABCD/USP."
+msgstr "Wyświetla liczbę wyświetleń i pobrań artykułów — w podsumowaniu artykułu (listy) oraz na stronie szczegółów. Napisane od nowa i dostosowane do OJS 3.4/3.5 przez OJSBR. Pierwotna wtyczka autorstwa STI FFLCH i ABCD/USP."
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.settings"

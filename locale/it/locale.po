@@ -16,7 +16,7 @@ msgid "plugins.generic.viewcounter.displayName"
 msgstr "Contatore di visualizzazioni"
 
 msgid "plugins.generic.viewcounter.description"
-msgstr "Mostra il numero di visualizzazioni e download degli articoli, nel sommario dell'articolo (elenchi) e nella pagina dei dettagli dell'articolo. Riscritto e adattato per OJS 3.5 da OJSBR. Plugin originale di STI FFLCH e ABCD/USP."
+msgstr "Mostra il numero di visualizzazioni e download degli articoli, nel sommario dell'articolo (elenchi) e nella pagina dei dettagli dell'articolo. Riscritto e adattato per OJS 3.4/3.5 da OJSBR. Plugin originale di STI FFLCH e ABCD/USP."
 
 msgid "plugins.generic.viewcounter.settings"
 msgstr "Impostazioni del contatore di visualizzazioni"

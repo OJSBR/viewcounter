@@ -16,7 +16,7 @@ msgid "plugins.generic.viewcounter.displayName"
 msgstr "Aufrufzähler"
 
 msgid "plugins.generic.viewcounter.description"
-msgstr "Zeigt die Anzahl der Aufrufe und Downloads von Artikeln an, in der Artikelübersicht (Listen) und auf der Artikeldetailseite. Neu geschrieben und angepasst für OJS 3.5 von OJSBR. Ursprüngliches Plugin von STI FFLCH und ABCD/USP."
+msgstr "Zeigt die Anzahl der Aufrufe und Downloads von Artikeln an, in der Artikelübersicht (Listen) und auf der Artikeldetailseite. Neu geschrieben und angepasst für OJS 3.4/3.5 von OJSBR. Ursprüngliches Plugin von STI FFLCH und ABCD/USP."
 
 msgid "plugins.generic.viewcounter.settings"
 msgstr "Einstellungen des Aufrufzählers"

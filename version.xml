@@ -13,8 +13,8 @@
 <version>
 	<application>viewcounter</application>
 	<type>plugins.generic</type>
-	<release>1.2.0.4</release>
-	<date>2026-08-29</date>
+	<release>1.3.0.0</release>
+	<date>2026-09-05</date>
 	<lazy-load>1</lazy-load>
 	<class>ViewcounterPlugin</class>
 </version>

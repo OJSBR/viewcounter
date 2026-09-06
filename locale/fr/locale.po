@@ -16,7 +16,7 @@ msgid "plugins.generic.viewcounter.displayName"
 msgstr "Compteur de vues"
 
 msgid "plugins.generic.viewcounter.description"
-msgstr "Affiche le nombre de vues et de téléchargements des articles, dans le résumé de l'article (listes) et sur la page de détails de l'article. Réécrit et adapté pour OJS 3.5 par OJSBR. Plugin original de STI FFLCH et ABCD/USP."
+msgstr "Affiche le nombre de vues et de téléchargements des articles, dans le résumé de l'article (listes) et sur la page de détails de l'article. Réécrit et adapté pour OJS 3.4/3.5 par OJSBR. Plugin original de STI FFLCH et ABCD/USP."
 
 msgid "plugins.generic.viewcounter.settings"
 msgstr "Paramètres du compteur de vues"

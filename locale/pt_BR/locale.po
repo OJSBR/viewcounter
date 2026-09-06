@@ -10,7 +10,7 @@ msgid "plugins.generic.viewcounter.displayName"
 msgstr "Contador de visualizações"
 
 msgid "plugins.generic.viewcounter.description"
-msgstr "Exibe a quantidade de visualizações e downloads dos artigos, no resumo (listas) e na página de metadados do artigo. Reescrito e adaptado para o OJS 3.5 pela OJSBR. Plugin original de STI FFLCH e ABCD/USP."
+msgstr "Exibe a quantidade de visualizações e downloads dos artigos, no resumo (listas) e na página de metadados do artigo. Reescrito e adaptado para o OJS 3.4/3.5 pela OJSBR. Plugin original de STI FFLCH e ABCD/USP."
 
 msgid "plugins.generic.viewcounter.settings"
 msgstr "Configurações do contador"

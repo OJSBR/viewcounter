@@ -16,7 +16,7 @@ msgid "plugins.generic.viewcounter.displayName"
 msgstr "Contador de visitas"
 
 msgid "plugins.generic.viewcounter.description"
-msgstr "Muestra el número de visitas y descargas de los artículos, en el sumario del artículo (listas) y en la página de detalles del artículo. Reescrito y adaptado para OJS 3.5 por OJSBR. Plugin original de STI FFLCH y ABCD/USP."
+msgstr "Muestra el número de visitas y descargas de los artículos, en el sumario del artículo (listas) y en la página de detalles del artículo. Reescrito y adaptado para OJS 3.4/3.5 por OJSBR. Plugin original de STI FFLCH y ABCD/USP."
 
 msgid "plugins.generic.viewcounter.settings"
 msgstr "Configuración del contador de visitas"

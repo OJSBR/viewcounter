@@ -14,7 +14,7 @@ msgstr "Bộ đếm lượt xem"
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.description"
-msgstr "Hiển thị số lượt xem và lượt tải của bài báo, trong phần tóm tắt bài báo (danh sách) và trên trang chi tiết. Được OJSBR viết lại và điều chỉnh cho OJS 3.5. Trình cắm gốc của STI FFLCH và ABCD/USP."
+msgstr "Hiển thị số lượt xem và lượt tải của bài báo, trong phần tóm tắt bài báo (danh sách) và trên trang chi tiết. Được OJSBR viết lại và điều chỉnh cho OJS 3.4/3.5. Trình cắm gốc của STI FFLCH và ABCD/USP."
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.settings"

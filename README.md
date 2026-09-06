@@ -1,10 +1,10 @@
 # View Counter — OJS plugin
 
 [![OJS](https://img.shields.io/badge/OJS-3.4%20%7C%203.5-brightgreen)](https://pkp.sfu.ca/ojs/)
-[![Version](https://img.shields.io/badge/version-1.2.0.4-blue)](version.xml)
+[![Version](https://img.shields.io/badge/version-1.3.0.0-blue)](version.xml)
 [![License](https://img.shields.io/badge/license-GPL--3.0-lightgrey)](LICENSE)
 
-**⬇️ Install package:** [OJS 3.5](https://github.com/OJSBR/viewcounter/releases/download/1.2.0.4/viewcounter-1.2.0.4.tar.gz) · [OJS 3.4](https://github.com/OJSBR/viewcounter/releases/download/1.1.0.1/viewcounter-1.1.0.1.tar.gz) — or browse all [Releases](../../releases).
+**⬇️ Install package:** [OJS 3.5](https://github.com/OJSBR/viewcounter/releases/download/1.3.0.0/viewcounter-1.3.0.0.tar.gz) · [OJS 3.4](https://github.com/OJSBR/viewcounter/releases/download/1.1.1.0/viewcounter-1.1.1.0.tar.gz) — or browse all [Releases](../../releases).
 
 A generic plugin for **Open Journal Systems (OJS)** that displays each article's
 **abstract views** and **downloads** (sum of galleys) on the article summary lists and on
@@ -18,8 +18,8 @@ the article landing page — discreetly, as icons with a tooltip near the title.
 
 | OJS version | Branch | Plugin release |
 |-------------|--------|----------------|
-| OJS 3.5.x   | [`stable-3_5_0`](../../tree/stable-3_5_0) *(default)* | 1.2.0.4 |
-| OJS 3.4.x   | [`stable-3_4_0`](../../tree/stable-3_4_0) | 1.1.0.1 |
+| OJS 3.5.x   | [`stable-3_5_0`](../../tree/stable-3_5_0) *(default)* | 1.3.0.0 |
+| OJS 3.4.x   | [`stable-3_4_0`](../../tree/stable-3_4_0) | 1.1.1.0 |
 
 Pick the branch matching your OJS version. Each branch is installable as-is.
 
@@ -37,11 +37,24 @@ Go to **Settings → Website → Plugins → View counter → Settings**:
 - **Show in summary** (article lists)
 - **Show on the article landing page**
 
-Both are enabled by default. Saving clears the template cache automatically.
+Both are enabled by default and take effect on the next page load (no cache to clear).
 
-On OJS 3.5, counts are computed via the statistics service (`publicationStats`) and exposed
-to Smarty through `{viewcounterStats}`, since `Submission::getViews()` /
-`Galley::getViews()` were removed; queries are wrapped in `try/catch` and fall back to `0`.
+## How it works
+
+- **No core template is replaced.** The badge is injected through the content hooks
+  `Templates::Issue::Issue::Article` (summary lists: issue TOC, journal home, search
+  results) and `Templates::Article::Main` (article landing page), so core fixes to the
+  templates keep reaching your site.
+- A small stylesheet and script (`css/viewcounter.css`, `js/viewcounter.js`) move the
+  badge next to the title when the theme uses the default markup
+  (`.obj_article_summary .title` / `h1.page_title`). If the markup differs, the badge
+  simply stays where the hook printed it.
+- Counts come from the statistics service (`publicationStats`) and are **cached per
+  submission for 24 hours** (`Cache::remember`). On list pages the cache is primed in
+  bulk with a single grouped query per metric type, so an issue TOC with 30 articles does
+  not run 60 aggregation queries.
+- Themes that copied the old templates can keep using `{viewcounterStats submission=$article}`;
+  the Smarty function is still registered.
 
 ## Credits & authorship
 
@@ -77,8 +90,8 @@ título.
 
 | Versão do OJS | Branch | Release do plugin |
 |---------------|--------|-------------------|
-| OJS 3.5.x     | `stable-3_5_0` *(padrão)* | 1.2.0.3 |
-| OJS 3.4.x     | `stable-3_4_0` | 1.1.0.1 |
+| OJS 3.5.x     | `stable-3_5_0` *(padrão)* | 1.3.0.0 |
+| OJS 3.4.x     | `stable-3_4_0` | 1.1.1.0 |
 
 ### Instalação
 
@@ -89,8 +102,20 @@ pasta em `plugins/generic/` (ficando `plugins/generic/viewcounter/`). Depois ati
 ### Configuração
 
 Em **Configurações → Website → Plugins → Contador de visualizações → Configurações**,
-escolha exibir no resumo (listas) e/ou na página do artigo (padrão: ambos ativos). Ao
-salvar, o cache de templates é limpo automaticamente.
+escolha exibir no resumo (listas) e/ou na página do artigo (padrão: ambos ativos). A
+mudança vale no próximo carregamento de página, sem limpar cache algum.
+
+### Como funciona
+
+- **Nenhum template do núcleo é substituído.** O selo é injetado pelos hooks de conteúdo
+  `Templates::Issue::Issue::Article` (listas: sumário da edição, capa da revista, busca) e
+  `Templates::Article::Main` (página do artigo); as correções do núcleo continuam chegando.
+- Um CSS e um JS pequenos (`css/viewcounter.css`, `js/viewcounter.js`) movem o selo para
+  junto do título quando o tema usa a marcação padrão. Se a marcação for outra, o selo fica
+  onde o hook o imprimiu.
+- As contagens vêm do serviço de estatísticas e ficam em **cache por 24 horas, por
+  submissão**. Nas listas o cache é preenchido em lote, com uma única consulta agrupada por
+  tipo de métrica.
 
 ### Créditos e autoria
 

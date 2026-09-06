@@ -14,7 +14,7 @@ msgstr "Počítadlo zobrazení"
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.description"
-msgstr "Zobrazuje počet zobrazení a stažení článků v přehledu článku (seznamy) i na stránce s podrobnostmi. Přepsáno a upraveno pro OJS 3.5 organizací OJSBR. Původní zásuvný modul od STI FFLCH a ABCD/USP."
+msgstr "Zobrazuje počet zobrazení a stažení článků v přehledu článku (seznamy) i na stránce s podrobnostmi. Přepsáno a upraveno pro OJS 3.4/3.5 organizací OJSBR. Původní zásuvný modul od STI FFLCH a ABCD/USP."
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.settings"

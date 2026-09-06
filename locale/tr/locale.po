@@ -14,7 +14,7 @@ msgstr "Görüntüleme sayacı"
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.description"
-msgstr "Makalelerin görüntülenme ve indirilme sayısını, makale özetinde (listelerde) ve ayrıntı sayfasında gösterir. OJS 3.5 için OJSBR tarafından yeniden yazılıp uyarlanmıştır. Özgün eklenti STI FFLCH ve ABCD/USP'ye aittir."
+msgstr "Makalelerin görüntülenme ve indirilme sayısını, makale özetinde (listelerde) ve ayrıntı sayfasında gösterir. OJS 3.4/3.5 için OJSBR tarafından yeniden yazılıp uyarlanmıştır. Özgün eklenti STI FFLCH ve ABCD/USP'ye aittir."
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.settings"

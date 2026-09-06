@@ -14,7 +14,7 @@ msgstr "Števec ogledov"
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.description"
-msgstr "Prikaže število ogledov in prenosov člankov, v povzetku članka (seznami) in na strani s podrobnostmi. Za OJS 3.5 na novo napisal in prilagodil OJSBR. Izvirni vtičnik: STI FFLCH in ABCD/USP."
+msgstr "Prikaže število ogledov in prenosov člankov, v povzetku članka (seznami) in na strani s podrobnostmi. Za OJS 3.4/3.5 na novo napisal in prilagodil OJSBR. Izvirni vtičnik: STI FFLCH in ABCD/USP."
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.settings"

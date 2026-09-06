@@ -14,7 +14,7 @@ msgstr "Penghitung tampilan"
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.description"
-msgstr "Menampilkan jumlah tampilan dan unduhan artikel, pada ringkasan artikel (daftar) dan pada halaman detail. Ditulis ulang dan disesuaikan untuk OJS 3.5 oleh OJSBR. Plugin asli oleh STI FFLCH dan ABCD/USP."
+msgstr "Menampilkan jumlah tampilan dan unduhan artikel, pada ringkasan artikel (daftar) dan pada halaman detail. Ditulis ulang dan disesuaikan untuk OJS 3.4/3.5 oleh OJSBR. Plugin asli oleh STI FFLCH dan ABCD/USP."
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.settings"

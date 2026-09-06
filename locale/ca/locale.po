@@ -12,7 +12,7 @@ msgid "plugins.generic.viewcounter.displayName"
 msgstr "Comptador de visualitzacions"
 
 msgid "plugins.generic.viewcounter.description"
-msgstr "Mostra el nombre de visualitzacions i baixades dels articles, al resum de l'article (llistes) i a la pàgina de detall. Reescrit i adaptat per a l'OJS 3.5 per OJSBR. Connector original de l'STI FFLCH i ABCD/USP."
+msgstr "Mostra el nombre de visualitzacions i baixades dels articles, al resum de l'article (llistes) i a la pàgina de detall. Reescrit i adaptat per a l'OJS 3.4/3.5 per OJSBR. Connector original de l'STI FFLCH i ABCD/USP."
 
 msgid "plugins.generic.viewcounter.settings"
 msgstr "Configuració del comptador de visualitzacions"

@@ -14,7 +14,7 @@ msgstr "Ikustaldien kontagailua"
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.description"
-msgstr "Artikuluen ikustaldi eta deskarga kopurua erakusten du, artikuluaren laburpenean (zerrendetan) eta xehetasun orrian. OJSBRk berridatzi eta OJS 3.5erako egokitua. Jatorrizko plugina STI FFLCH eta ABCD/USP."
+msgstr "Artikuluen ikustaldi eta deskarga kopurua erakusten du, artikuluaren laburpenean (zerrendetan) eta xehetasun orrian. OJSBRk berridatzi eta OJS 3.4/3.5erako egokitua. Jatorrizko plugina STI FFLCH eta ABCD/USP."
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.settings"

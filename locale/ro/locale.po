@@ -14,7 +14,7 @@ msgstr "Contor de vizualizări"
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.description"
-msgstr "Afișează numărul de vizualizări și descărcări ale articolelor, în sumarul articolului (liste) și pe pagina de detalii. Rescris și adaptat pentru OJS 3.5 de OJSBR. Modul original de la STI FFLCH și ABCD/USP."
+msgstr "Afișează numărul de vizualizări și descărcări ale articolelor, în sumarul articolului (liste) și pe pagina de detalii. Rescris și adaptat pentru OJS 3.4/3.5 de OJSBR. Modul original de la STI FFLCH și ABCD/USP."
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.settings"

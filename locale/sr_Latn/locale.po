@@ -14,7 +14,7 @@ msgstr "Brojač pregleda"
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.description"
-msgstr "Prikazuje broj pregleda i preuzimanja članaka, u pregledu članka (liste) i na stranici sa detaljima. Za OJS 3.5 iznova napisao i prilagodio OJSBR. Originalni dodatak: STI FFLCH i ABCD/USP."
+msgstr "Prikazuje broj pregleda i preuzimanja članaka, u pregledu članka (liste) i na stranici sa detaljima. Za OJS 3.4/3.5 iznova napisao i prilagodio OJSBR. Originalni dodatak: STI FFLCH i ABCD/USP."
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.settings"

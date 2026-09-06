@@ -14,7 +14,7 @@ msgstr "浏览计数器"
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.description"
-msgstr "在文章摘要（列表）和文章详情页显示文章的浏览量与下载量。由 OJSBR 为 OJS 3.5 重写并适配。原始插件由 STI FFLCH 与 ABCD/USP 开发。"
+msgstr "在文章摘要（列表）和文章详情页显示文章的浏览量与下载量。由 OJSBR 为 OJS 3.4/3.5 重写并适配。原始插件由 STI FFLCH 与 ABCD/USP 开发。"
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.settings"

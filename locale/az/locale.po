@@ -14,7 +14,7 @@ msgstr "Baxış sayğacı"
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.description"
-msgstr "Məqalələrin baxış və yükləmə sayını həm məqalə xülasəsində (siyahılarda), həm də məqalənin təfərrüat səhifəsində göstərir. OJS 3.5 üçün OJSBR tərəfindən yenidən yazılıb və uyğunlaşdırılıb. Orijinal plagin STI FFLCH və ABCD/USP-yə məxsusdur."
+msgstr "Məqalələrin baxış və yükləmə sayını həm məqalə xülasəsində (siyahılarda), həm də məqalənin təfərrüat səhifəsində göstərir. OJS 3.4/3.5 üçün OJSBR tərəfindən yenidən yazılıb və uyğunlaşdırılıb. Orijinal plagin STI FFLCH və ABCD/USP-yə məxsusdur."
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.settings"

@@ -14,7 +14,7 @@ msgstr "Katselulaskuri"
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.description"
-msgstr "Näyttää artikkelien katselu- ja latausmäärät artikkelin tiivistelmässä (listoissa) ja tietosivulla. OJSBR on kirjoittanut uudelleen ja sovittanut OJS 3.5:een. Alkuperäinen lisäosa: STI FFLCH ja ABCD/USP."
+msgstr "Näyttää artikkelien katselu- ja latausmäärät artikkelin tiivistelmässä (listoissa) ja tietosivulla. OJSBR on kirjoittanut uudelleen ja sovittanut OJS 3.4/3.5:een. Alkuperäinen lisäosa: STI FFLCH ja ABCD/USP."
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.settings"

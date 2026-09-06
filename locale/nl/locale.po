@@ -12,7 +12,7 @@ msgid "plugins.generic.viewcounter.displayName"
 msgstr "Weergaveteller"
 
 msgid "plugins.generic.viewcounter.description"
-msgstr "Toont het aantal weergaven en downloads van artikelen, in het artikeloverzicht (lijsten) en op de detailpagina. Herschreven en aangepast voor OJS 3.5 door OJSBR. Oorspronkelijke plug-in van STI FFLCH en ABCD/USP."
+msgstr "Toont het aantal weergaven en downloads van artikelen, in het artikeloverzicht (lijsten) en op de detailpagina. Herschreven en aangepast voor OJS 3.4/3.5 door OJSBR. Oorspronkelijke plug-in van STI FFLCH en ABCD/USP."
 
 msgid "plugins.generic.viewcounter.settings"
 msgstr "Instellingen weergaveteller"

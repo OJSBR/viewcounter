@@ -14,7 +14,7 @@ msgstr "Visningsteller"
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.description"
-msgstr "Viser antall visninger og nedlastinger av artikler, i artikkelsammendraget (lister) og på detaljsiden. Skrevet om og tilpasset OJS 3.5 av OJSBR. Opprinnelig tillegg fra STI FFLCH og ABCD/USP."
+msgstr "Viser antall visninger og nedlastinger av artikler, i artikkelsammendraget (lister) og på detaljsiden. Skrevet om og tilpasset OJS 3.4/3.5 av OJSBR. Opprinnelig tillegg fra STI FFLCH og ABCD/USP."
 
 #, fuzzy
 msgid "plugins.generic.viewcounter.settings"
