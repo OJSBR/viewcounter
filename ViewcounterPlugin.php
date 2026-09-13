@@ -415,7 +415,7 @@ class ViewcounterPlugin extends GenericPlugin
     private function isFeatureEnabled(string $key): bool
     {
         $context = Application::get()->getRequest()->getContext();
-        $contextId = $context ? $context->getId() : PKPApplication::SITE_CONTEXT_ID;
+        $contextId = $context ? $context->getId() : PKPApplication::CONTEXT_SITE;
         $value = $this->getSetting($contextId, $key);
         return $value === null ? true : (bool) $value;
     }

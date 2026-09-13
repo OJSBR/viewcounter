@@ -32,13 +32,18 @@
 	flex: 0 0 auto;
 }
 
-/* Title as host (after relocation by viewcounter.js). */
+/* Title as host (after relocation by viewcounter.js).
+   Only two children ever sit here: the wrapper holding the title's own
+   content, and the badge. The title's inline content -- <em>, <sub>, the
+   <mjx-container> of a MathJax formula -- stays inside the wrapper, where it
+   keeps laying out inline instead of each becoming a flex item of its own. */
 .viewcounter-title-host {
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
 	gap: 12px;
 }
+.viewcounter-title-host > .viewcounter-title-text,
 .viewcounter-title-host > a {
 	flex: 1 1 auto;
 	min-width: 0;
