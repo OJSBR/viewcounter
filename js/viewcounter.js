@@ -1,7 +1,7 @@
 /**
  * plugins/generic/viewcounter/js/viewcounter.js
  *
- * Copyright (c) 2024-2026 OJSBR (https://ojsbr.com.br)
+ * Copyright (c) 2024-2026 OJSBR (https://ojsbr.com)
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * Moves each badge from its hook location to the article title, when the

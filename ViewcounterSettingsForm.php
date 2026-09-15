@@ -1,11 +1,14 @@
 <?php
 
 /**
- * @file ViewcounterSettingsForm.php
+ * @file plugins/generic/viewcounter/ViewcounterSettingsForm.php
  *
- * Settings form of the View counter plugin (OJSBR).
+ * Copyright (c) 2024-2026 OJSBR (https://ojsbr.com)
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class ViewcounterSettingsForm
+ *
+ * @brief Where the badge is shown: summary lists, article page, or both.
  */
 
 namespace APP\plugins\generic\viewcounter;
@@ -25,18 +28,17 @@ class ViewcounterSettingsForm extends Form
     }
 
     /**
-     * @copydoc Form::initData()
+     * Load the current settings of the journal; both places are on until saved.
      */
     public function initData(): void
     {
-        // Padrão: ambos ativos (quando ainda não foi salvo, getSetting retorna null).
         $this->setData('showInSummary', $this->plugin->getSetting($this->contextId, 'showInSummary') ?? 1);
         $this->setData('showInDetails', $this->plugin->getSetting($this->contextId, 'showInDetails') ?? 1);
         parent::initData();
     }
 
     /**
-     * @copydoc Form::readInputData()
+     * Read the submitted settings.
      */
     public function readInputData(): void
     {
@@ -44,7 +46,9 @@ class ViewcounterSettingsForm extends Form
     }
 
     /**
-     * @copydoc Form::fetch()
+     * Render the form.
+     *
+     * @param null|mixed $template
      */
     public function fetch($request, $template = null, $display = false): string
     {
@@ -54,7 +58,7 @@ class ViewcounterSettingsForm extends Form
     }
 
     /**
-     * @copydoc Form::execute()
+     * Save the settings of the journal.
      */
     public function execute(...$functionArgs)
     {

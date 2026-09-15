@@ -1,0 +1,5 @@
+[15-Sep-2026 18:23:26 UTC] PHP Warning:  PHP Startup: session.gc_divisor must be greater than 0 in Unknown on line 0
+[15-Sep-2026 18:23:26 UTC] PHP Warning:  PHP Startup: session.gc_divisor must be greater than 0 in Unknown on line 0
+[15-Sep-2026 18:24:11 UTC] PHP Warning:  PHP Startup: session.gc_divisor must be greater than 0 in Unknown on line 0
+[15-Sep-2026 18:31:46 UTC] PKP\dev\fixers\Fixers
+[15-Sep-2026 18:31:46 UTC] PKP\dev\fixers\HookFixer

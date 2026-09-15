@@ -1,7 +1,10 @@
 {**
  * plugins/generic/viewcounter/templates/settingsForm.tpl
  *
- * Configurações do plugin View counter (OJSBR).
+ * Copyright (c) 2024-2026 OJSBR (https://ojsbr.com)
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * Settings of the View Counter plugin.
  *}
 <script>
 	$(function() {ldelim}
@@ -9,7 +12,7 @@
 	{rdelim});
 </script>
 
-<form class="pkp_form" id="viewcounterSettingsForm" method="post" action="{url router=\PKP\core\PKPApplication::ROUTE_COMPONENT op="manage" category="generic" plugin=$pluginName verb="settings" save=true}">
+<form class="pkp_form" id="viewcounterSettingsForm" method="post" action="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT op="manage" category="generic" plugin=$pluginName verb="settings" save=true}">
 	{csrf}
 	{include file="controllers/notification/inPlaceNotification.tpl" notificationId="viewcounterSettingsFormNotification"}
 

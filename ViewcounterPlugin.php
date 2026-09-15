@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @file ViewcounterPlugin.php
+ * @file plugins/generic/viewcounter/ViewcounterPlugin.php
  *
- * Copyright (c) 2024-2026 OJSBR (https://ojsbr.com.br)
+ * Copyright (c) 2024-2026 OJSBR (https://ojsbr.com)
  * Original OJS 3.3 plugin by STI FFLCH and ABCD/USP.
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
@@ -47,42 +47,50 @@ class ViewcounterPlugin extends GenericPlugin
     private array $counts = [];
 
     /**
-     * @copydoc Plugin::register()
+     * Register the plugin and, where it is enabled, its hooks.
+     *
+     * @param string $category
+     * @param string $path
+     * @param null|int $mainContextId
      */
-    public function register($category, $path, $mainContextId = null)
+    public function register($category, $path, $mainContextId = null): bool
     {
         $success = parent::register($category, $path, $mainContextId);
-        if ($success && $this->getEnabled($mainContextId)) {
-            Hook::add('Templates::Issue::Issue::Article', [$this, 'displaySummaryBadge']);
-            Hook::add('Templates::Article::Main', [$this, 'displayDetailsBadge']);
-            Hook::add('TemplateManager::display', [$this, 'handleTemplateDisplay']);
+        // Only reader-facing pages of a journal reach these hooks.
+        if (!$success || Application::isUnderMaintenance() || !$this->getEnabled($mainContextId)) {
+            return $success;
         }
+
+        Hook::add('Templates::Issue::Issue::Article', [$this, 'displaySummaryBadge']);
+        Hook::add('Templates::Article::Main', [$this, 'displayDetailsBadge']);
+        Hook::add('TemplateManager::display', [$this, 'handleTemplateDisplay']);
+
         return $success;
     }
 
     /**
-     * @copydoc Plugin::getDisplayName()
+     * Name shown in the plugins list.
      */
-    public function getDisplayName()
+    public function getDisplayName(): string
     {
         return __('plugins.generic.viewcounter.displayName');
     }
 
     /**
-     * @copydoc Plugin::getDescription()
+     * Description shown in the plugins list.
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return __('plugins.generic.viewcounter.description');
     }
 
     /**
-     * @copydoc Plugin::getActions()
+     * Add the settings action to the plugin entry in the plugins list.
      */
     public function getActions($request, $verb): array
     {
         $actions = parent::getActions($request, $verb);
-        if (!$this->getEnabled()) {
+        if (!$request->getContext() || !$this->getEnabled()) {
             return $actions;
         }
         $router = $request->getRouter();
@@ -92,11 +100,12 @@ class ViewcounterPlugin extends GenericPlugin
     }
 
     /**
-     * @copydoc Plugin::manage()
+     * Show and save the settings form.
      */
     public function manage($args, $request): JSONMessage
     {
-        if ($request->getUserVar('verb') !== 'settings') {
+        // The settings belong to a journal; there is nothing to configure site-wide.
+        if ($request->getUserVar('verb') !== 'settings' || !$request->getContext()) {
             return parent::manage($args, $request);
         }
 
@@ -127,7 +136,7 @@ class ViewcounterPlugin extends GenericPlugin
      *
      * @param array $args [&$params, $smarty, &$output]
      */
-    public function displaySummaryBadge(string $hookName, array $args): bool
+    public function displaySummaryBadge($hookName, $args): bool
     {
         if (!$this->isFeatureEnabled('showInSummary')) {
             return Hook::CONTINUE;
@@ -146,7 +155,7 @@ class ViewcounterPlugin extends GenericPlugin
      *
      * @param array $args [&$params, $smarty, &$output]
      */
-    public function displayDetailsBadge(string $hookName, array $args): bool
+    public function displayDetailsBadge($hookName, $args): bool
     {
         if (!$this->isFeatureEnabled('showInDetails')) {
             return Hook::CONTINUE;
@@ -167,7 +176,7 @@ class ViewcounterPlugin extends GenericPlugin
      *
      * @param array $args [&$templateMgr, &$template]
      */
-    public function handleTemplateDisplay(string $hookName, array $args): bool
+    public function handleTemplateDisplay($hookName, $args): bool
     {
         /** @var TemplateManager $templateMgr */
         $templateMgr = $args[0];
@@ -273,11 +282,11 @@ class ViewcounterPlugin extends GenericPlugin
         $base = $request->getBaseUrl() . '/' . $this->getPluginPath();
         $templateMgr->addStyleSheet('viewcounter', $base . '/css/viewcounter.css', [
             'contexts' => ['frontend'],
-            'priority' => STYLE_SEQUENCE_LAST,
+            'priority' => TemplateManager::STYLE_SEQUENCE_LAST,
         ]);
         $templateMgr->addJavaScript('viewcounter', $base . '/js/viewcounter.js', [
             'contexts' => ['frontend'],
-            'priority' => STYLE_SEQUENCE_LAST,
+            'priority' => TemplateManager::STYLE_SEQUENCE_LAST,
         ]);
     }
 
