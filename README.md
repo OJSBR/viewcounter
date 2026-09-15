@@ -1,16 +1,16 @@
 # View Counter — OJS plugin
 
 [![OJS](https://img.shields.io/badge/OJS-3.4%20%7C%203.5-brightgreen)](https://pkp.sfu.ca/ojs/)
-[![Version](https://img.shields.io/badge/version-1.3.0.1-blue)](version.xml)
+[![Version](https://img.shields.io/badge/version-1.3.0.2-blue)](version.xml)
 [![License](https://img.shields.io/badge/license-GPL--3.0-lightgrey)](LICENSE)
 
-**⬇️ Install package:** [OJS 3.5](https://github.com/OJSBR/viewcounter/releases/download/1.3.0.1/viewcounter-1.3.0.1.tar.gz) · [OJS 3.4](https://github.com/OJSBR/viewcounter/releases/download/1.1.1.1/viewcounter-1.1.1.1.tar.gz) — or browse all [Releases](../../releases).
+**⬇️ Install package:** [OJS 3.5](https://github.com/OJSBR/viewcounter/releases/download/1.3.0.2/viewcounter-1.3.0.2.tar.gz) · [OJS 3.4](https://github.com/OJSBR/viewcounter/releases/download/1.1.1.2/viewcounter-1.1.1.2.tar.gz) — or browse all [Releases](../../releases).
 
 A generic plugin for **Open Journal Systems (OJS)** that displays each article's
 **abstract views** and **downloads** (sum of galleys) on the article summary lists and on
 the article landing page — discreetly, as icons with a tooltip near the title.
 
-> **Maintained by [OJSBR](https://ojsbr.com.br).** Rewritten and adapted from an original
+> **Maintained by [OJSBR](https://ojsbr.com).** Rewritten and adapted from an original
 > OJS 3.3 access/downloads counter by **STI-FFLCH/USP** and **ABCD/USP**. See the full
 > [Credits & authorship](#credits--authorship) section below.
 
@@ -18,8 +18,8 @@ the article landing page — discreetly, as icons with a tooltip near the title.
 
 | OJS version | Branch | Plugin release |
 |-------------|--------|----------------|
-| OJS 3.5.x   | [`stable-3_5_0`](../../tree/stable-3_5_0) *(default)* | 1.3.0.1 |
-| OJS 3.4.x   | [`stable-3_4_0`](../../tree/stable-3_4_0) | 1.1.1.1 |
+| OJS 3.5.x   | [`stable-3_5_0`](../../tree/stable-3_5_0) *(default)* | 1.3.0.2 |
+| OJS 3.4.x   | [`stable-3_4_0`](../../tree/stable-3_4_0) | 1.1.1.2 |
 
 Pick the branch matching your OJS version. Each branch is installable as-is.
 
@@ -56,13 +56,39 @@ Both are enabled by default and take effect on the next page load (no cache to c
 - Themes that copied the old templates can keep using `{viewcounterStats submission=$article}`;
   the Smarty function is still registered.
 
+## Tests
+
+- **PHPUnit** (`tests/*Test.php`, on `PKP\tests\PKPTestCase`): the badge markup and its accessible
+  labels, one grouped query per metric for a list and the 24-hour cache afterwards, submissions
+  without metrics, the site level without settings, no constant that only exists outside PKP's
+  strict mode, the plugin classes against the installed PKP, the 38 translations and the template.
+  From the installation root:
+
+  ```bash
+  lib/pkp/lib/vendor/bin/phpunit --configuration lib/pkp/tests/phpunit.xml --no-coverage "$PWD/plugins/generic/viewcounter/tests"
+  ```
+
+- **Cypress** (`cypress/tests/functional/Viewcounter.cy.js`, run by
+  [pkp-github-actions](https://github.com/pkp/pkp-github-actions) on every push): enables the
+  plugin, checks the badge inside the titles of the current issue and of an article page (it fails
+  with the hook off), and saves each place on its own, putting the setting back.
+- Verified on OJS 3.5.0.3 and 3.4.0.10.
+
+Tests are kept in the repository and are not part of the release package.
+
 ## Credits & authorship
 
-- **Maintained by** [OJSBR](https://ojsbr.com.br) — rewrite and adaptation to OJS 3.4/3.5.
+- **Maintained by** [OJSBR](https://ojsbr.com) — rewrite and adaptation to OJS 3.4/3.5.
 - **Original work:** OJS 3.3 access/downloads counter by **STI-FFLCH/USP** (Seção Técnica
   de Informática da FFLCH/USP) and **ABCD/USP** (Agência de Bibliotecas e Coleções Digitais
   da USP). See the FFLCH open-source repositories at <https://github.com/fflch>.
 - Distributed under the **GNU GPL v3**, consistent with the original licensing.
+
+## AI use
+
+Generative AI (Claude, by Anthropic) was used to write and run tests, improve the code and bring
+it in line with PKP standards. Every change is reviewed and tested by OJSBR, which is responsible
+for the published releases.
 
 ## Contributing
 
@@ -82,7 +108,7 @@ Plugin genérico para o **Open Journal Systems (OJS)** que mostra a quantidade d
 de resumo e na página do artigo — de forma discreta, com ícones e tooltip próximos ao
 título.
 
-> **Mantido pela [OJSBR](https://ojsbr.com.br).** Reescrito e adaptado a partir de um
+> **Mantido pela [OJSBR](https://ojsbr.com).** Reescrito e adaptado a partir de um
 > contador de acessos/downloads original do OJS 3.3 da **STI-FFLCH/USP** e do **ABCD/USP**.
 > Veja a seção [Créditos e autoria](#créditos-e-autoria) abaixo.
 
@@ -90,8 +116,8 @@ título.
 
 | Versão do OJS | Branch | Release do plugin |
 |---------------|--------|-------------------|
-| OJS 3.5.x     | `stable-3_5_0` *(padrão)* | 1.3.0.1 |
-| OJS 3.4.x     | `stable-3_4_0` | 1.1.1.1 |
+| OJS 3.5.x     | `stable-3_5_0` *(padrão)* | 1.3.0.2 |
+| OJS 3.4.x     | `stable-3_4_0` | 1.1.1.2 |
 
 ### Instalação
 
@@ -117,13 +143,31 @@ mudança vale no próximo carregamento de página, sem limpar cache algum.
   submissão**. Nas listas o cache é preenchido em lote, com uma única consulta agrupada por
   tipo de métrica.
 
+### Testes
+
+PHPUnit em `tests/` (sobre `PKP\tests\PKPTestCase`) e Cypress em `cypress/tests/functional/`
+(rodado pelo [pkp-github-actions](https://github.com/pkp/pkp-github-actions) a cada push), com os
+comandos da seção em inglês. A suíte cobre o selo e seus rótulos acessíveis, uma consulta agrupada
+por métrica nas listas e o cache de 24 horas, submissões sem métricas, o nível do site sem
+configurações, as classes contra o PKP instalado, as 38 traduções e o template; o Cypress confere o
+selo nos títulos do fascículo atual e de um artigo e o salvamento de cada lugar. Verificado no OJS
+3.5.0.3 e 3.4.0.10.
+
+Os testes ficam no repositório e não fazem parte do pacote da release.
+
 ### Créditos e autoria
 
-- **Mantido pela** [OJSBR](https://ojsbr.com.br) — reescrita e adaptação para OJS 3.4/3.5.
+- **Mantido pela** [OJSBR](https://ojsbr.com) — reescrita e adaptação para OJS 3.4/3.5.
 - **Trabalho original:** contador de acessos/downloads do OJS 3.3 da **STI-FFLCH/USP**
   (Seção Técnica de Informática da FFLCH/USP) e do **ABCD/USP** (Agência de Bibliotecas e
   Coleções Digitais da USP). Repositórios abertos da FFLCH: <https://github.com/fflch>.
 - Distribuído sob a **GNU GPL v3**, coerente com o licenciamento original.
+
+### Uso de IA
+
+Foi usada IA generativa (Claude, da Anthropic) para escrever e rodar testes, melhorar o código e
+alinhá-lo aos padrões da PKP. Toda mudança é revisada e testada pela OJSBR, que responde pelas
+releases publicadas.
 
 ### Licença
 
