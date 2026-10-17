@@ -8,7 +8,8 @@
  *
  * @class ViewcounterPluginTest
  *
- * @brief The badge markup, the counts cache and the site level.
+ * @brief The badge markup, the counts and their cache, the pages that prime
+ *        it, what happens when the counts cannot be read, and the site level.
  */
 
 namespace APP\plugins\generic\viewcounter\tests;
@@ -28,14 +29,27 @@ class ViewcounterPluginTest extends PKPTestCase
         return new class ($counts) extends ViewcounterPlugin {
             public int $queries = 0;
 
+            public array $assocTypes = [];
+
+            public bool $fail = false;
+
             public function __construct(private array $fixed)
             {
                 parent::__construct();
             }
 
+            public function getSetting($contextId, $name)
+            {
+                return null;
+            }
+
             protected function sumByType(int $contextId, array $submissionIds, array $assocTypes): array
             {
                 $this->queries++;
+                $this->assocTypes[] = $assocTypes;
+                if ($this->fail) {
+                    throw new \RuntimeException('metrics table unavailable');
+                }
                 $key = in_array(\APP\core\Application::ASSOC_TYPE_SUBMISSION, $assocTypes, true) ? 'views' : 'downloads';
                 return array_intersect_key(array_map(fn ($c) => $c[$key], $this->fixed), array_flip($submissionIds));
             }
@@ -58,14 +72,68 @@ class ViewcounterPluginTest extends PKPTestCase
         parent::tearDown();
     }
 
-    public function testTheBadgeCarriesBothCountsWithAccessibleLabels(): void
+    public function testTheBadgeCarriesBothCountsAsVisuallyHiddenText(): void
     {
         $html = $this->plugin([900001 => ['views' => 12, 'downloads' => 3]])->renderBadge($this->submission(900001), 'summary');
 
         $this->assertStringContainsString('class="viewcounter-stats viewcounter-stats--summary" data-vc-place="summary"', $html);
-        $this->assertMatchesRegularExpression('/aria-label="[^"]+: 12"/', $html);
-        $this->assertMatchesRegularExpression('/aria-label="[^"]+: 3"/', $html);
-        $this->assertStringContainsString('aria-hidden="true"', $html);
+        // Screen readers get "Views: 12"; the bare number and the icon are hidden from them.
+        $this->assertMatchesRegularExpression('/<span class="viewcounter-sr">[^<]+: 12<\/span>/', $html);
+        $this->assertMatchesRegularExpression('/<span class="viewcounter-sr">[^<]+: 3<\/span>/', $html);
+        $this->assertMatchesRegularExpression('/<span class="viewcounter-visible" aria-hidden="true" title="[^"]+"><svg[^>]*aria-hidden="true">.*?<\/svg> 12<\/span>/', $html);
+        $this->assertSame(4, substr_count($html, 'aria-hidden="true"'), 'Both icons and both visible counts.');
+        // aria-label on a generic span is ignored by many screen readers.
+        $this->assertStringNotContainsString('aria-label', $html);
+    }
+
+    public function testDownloadsAreGalleyDownloadsOnlyAsInTheStatisticsPage(): void
+    {
+        $plugin = $this->plugin([900001 => ['views' => 1, 'downloads' => 1]]);
+        $plugin->getCounts($this->submission(900001));
+
+        $this->assertContains([\APP\core\Application::ASSOC_TYPE_SUBMISSION_FILE], $plugin->assocTypes);
+        foreach ($plugin->assocTypes as $types) {
+            $this->assertNotContains(\APP\core\Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER, $types, 'Supplementary files are not downloads of the article.');
+        }
+        // Counts cached by a release that summed supplementary files are not served.
+        $this->assertSame('viewcounter-v2-900001', ViewcounterPlugin::cacheKey(900001));
+    }
+
+    public function testCountsThatCannotBeReadShowNoBadgeAndAreLogged(): void
+    {
+        $plugin = $this->plugin([900003 => ['views' => 5, 'downloads' => 5]]);
+        $plugin->fail = true;
+        $log = tempnam(sys_get_temp_dir(), 'vc');
+        $previous = ini_set('error_log', $log);
+        try {
+            $this->assertNull($plugin->getCounts($this->submission(900003)));
+            $this->assertSame('', $plugin->renderBadge($this->submission(900003), 'summary'), 'No made-up 0 views / 0 downloads.');
+            $this->assertSame(1, $plugin->queries, 'A failure is not retried for every badge of the same page.');
+        } finally {
+            ini_set('error_log', $previous === false ? '' : $previous);
+        }
+        $this->assertStringContainsString('metrics table unavailable', (string) file_get_contents($log));
+        unlink($log);
+    }
+
+    public function testTheCategoryPageIsPrimedLikeTheIssuePage(): void
+    {
+        $plugin = $this->plugin([900001 => ['views' => 5, 'downloads' => 1], 900002 => ['views' => 7, 'downloads' => 2]]);
+        $request = \APP\core\Application::get()->getRequest();
+        if (!$request->getRouter()) {
+            $router = new \APP\core\PageRouter();
+            $router->setApplication(\APP\core\Application::get());
+            $request->setRouter($router);
+        }
+        $templateMgr = \APP\template\TemplateManager::getManager($request);
+        $templateMgr->assign('publishedSubmissions', [$this->submission(900001), $this->submission(900002)]);
+
+        $plugin->handleTemplateDisplay('TemplateManager::display', [$templateMgr, 'frontend/pages/catalogCategory.tpl']);
+
+        $this->assertSame(2, $plugin->queries, 'One grouped query per metric type, before the articles are drawn.');
+        $plugin->getCounts($this->submission(900001));
+        $plugin->getCounts($this->submission(900002));
+        $this->assertSame(2, $plugin->queries, 'No query per article on the category page.');
     }
 
     public function testAnUnknownPlaceFallsBackToTheSummaryAndTheThemeFunctionDoesNotRelocate(): void

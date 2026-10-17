@@ -4,7 +4,9 @@
  * Copyright (c) 2024-2026 OJSBR (https://ojsbr.com)
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * Functional tests: the badge on the issue and article pages, and the settings.
+ * Functional tests: the badge on the issue and article pages — shown next to
+ * the title without becoming part of the heading's accessible name — and the
+ * settings.
  *
  * Parameters (--env): contextPath, adminUser, adminPassword (captcha on login
  * must be off for the run). The defaults match the data set of PKP's
@@ -115,11 +117,33 @@ describe('View Counter plugin', function() {
 		cy.get(settingsForm).should('not.exist');
 	};
 
-	// A badge with the two counts, each a number with an accessible label.
-	const checkBadge = (badge) => {
-		cy.wrap(badge).find('span[aria-label]').should('have.length', 2).each((count) => {
-			expect(count.attr('aria-label')).to.match(/: \d+$/);
+	// The badge screen readers get: the two counts as visually hidden text
+	// ("Views: 12"), never as aria-label on a span, sitting right after the
+	// heading and hidden from view.
+	const checkBadge = (badge, heading) => {
+		cy.wrap(badge).find('.viewcounter-sr').should('have.length', 2).each((count) => {
+			expect(count.text()).to.match(/: \d+$/);
 		});
+		expect(badge.find('[aria-label]').length, 'no aria-label on generic spans').to.equal(0);
+		expect(badge.prev().get(0), 'right after the heading').to.equal(heading.get(0));
+		expect(badge.get(0).getBoundingClientRect().width, 'hidden from view').to.be.at.most(1);
+	};
+
+	// The heading's accessible text: everything in it except what is hidden from
+	// assistive technology. The counts must not be part of it.
+	const accessibleText = (heading) => {
+		const copy = heading.get(0).cloneNode(true);
+		copy.querySelectorAll('[aria-hidden="true"]').forEach((node) => node.remove());
+		return copy.textContent.replace(/\s+/g, ' ').trim();
+	};
+
+	// The copy shown next to the title: visible, and hidden from assistive technology.
+	const checkCopy = (heading) => {
+		const copy = heading.find('.viewcounter-stats--copy');
+		expect(copy.length, 'visible copy in the title').to.equal(1);
+		expect(copy.attr('aria-hidden')).to.equal('true');
+		expect(copy.find('.viewcounter-sr').length).to.equal(0);
+		expect(accessibleText(heading), 'the counts are not part of the heading').to.not.match(/viewcounter|\d+\s+\d+$/);
 	};
 
 	it('Enables the plugin with both places on', function() {
@@ -142,18 +166,23 @@ describe('View Counter plugin', function() {
 
 	it('Shows the badge next to the titles of the current issue and of an article', function() {
 		cy.visit(pageUrl('issue/current'));
-		cy.get('.obj_article_summary .viewcounter-stats--summary', {timeout: 30000}).should('have.length.at.least', 1).first().then(($badge) => {
-			checkBadge($badge);
-			// The script moves the badge into the title and wraps the title's own content, so
-			// italic or MathJax parts of a title keep flowing as one line.
-			expect($badge.closest('.title').length, 'badge inside the title').to.equal(1);
-			expect($badge.closest('.title').children('.viewcounter-title-text').length).to.equal(1);
+		cy.get('.obj_article_summary .viewcounter-stats--summary[data-vc-placed]', {timeout: 30000}).should('have.length.at.least', 1).first().then(($badge) => {
+			const $title = $badge.closest('.obj_article_summary').find('.title').first();
+			checkBadge($badge, $title);
+			checkCopy($title);
+			// The title's own content is wrapped, so italic or MathJax parts of a
+			// title keep flowing as one line next to the copy.
+			expect($title.children('.viewcounter-title-text').length).to.equal(1);
+			expect(accessibleText($title)).to.equal($title.find('a').first().text().replace(/\s+/g, ' ').trim());
 		});
 
 		cy.get('.obj_article_summary .title a').first().invoke('attr', 'href').then((href) => {
 			cy.visit(href);
-			cy.get('.viewcounter-stats--details', {timeout: 30000}).should('have.length', 1).then(checkBadge);
-			cy.get('h1.page_title .viewcounter-stats--details').should('have.length', 1);
+			cy.get('.viewcounter-stats--details[data-vc-placed]', {timeout: 30000}).should('have.length', 1).then(($badge) => {
+				const $title = Cypress.$('h1.page_title').first();
+				checkBadge($badge, $title);
+				checkCopy($title);
+			});
 		});
 	});
 
