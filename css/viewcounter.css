@@ -22,7 +22,8 @@
 .viewcounter-stats--summary {
 	font-size: 13px;
 }
-.viewcounter-stats > span {
+.viewcounter-stats > .viewcounter-count,
+.viewcounter-count > .viewcounter-visible {
 	display: inline-flex;
 	align-items: center;
 	gap: 5px;
@@ -54,4 +55,19 @@
 .main_entry > .viewcounter-stats {
 	display: flex;
 	margin: 0.5em 0;
+}
+
+/* Read by screen readers only: the "Views: 12" text of each count, and the
+   badge itself once viewcounter.js has put its visible copy in the title. */
+.viewcounter-sr,
+.viewcounter-stats.viewcounter-sr-only {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
 }

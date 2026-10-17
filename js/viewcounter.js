@@ -4,9 +4,14 @@
  * Copyright (c) 2024-2026 OJSBR (https://ojsbr.com)
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * Moves each badge from its hook location to the article title, when the
- * theme uses the default markup (.obj_article_summary .title / h1.page_title).
- * If the markup differs, the badge simply stays where the hook printed it.
+ * Shows each badge next to the article title, when the theme uses the default
+ * markup (.obj_article_summary .title / h1.page_title). If the markup differs,
+ * the badge simply stays where the hook printed it.
+ *
+ * A heading's accessible name is everything inside it, so the badge itself
+ * never goes into the title: a copy hidden from assistive technology
+ * (aria-hidden) is shown there, and the badge, with its visually hidden
+ * "Views: 12" texts, is moved right after the heading and hidden from view.
  *
  * The title becomes a flex container so the badge can sit at its right edge,
  * and in a flex container every child box becomes a flex item -- including the
@@ -49,9 +54,19 @@
 			if (!host || host.contains(badge)) {
 				return;
 			}
+			var copy = badge.cloneNode(true);
+			copy.removeAttribute('data-vc-place');
+			copy.setAttribute('aria-hidden', 'true');
+			copy.classList.add('viewcounter-stats--copy');
+			Array.prototype.forEach.call(copy.querySelectorAll('.viewcounter-sr'), function (text) {
+				text.parentNode.removeChild(text);
+			});
 			wrapContent(host);
 			host.classList.add('viewcounter-title-host');
-			host.appendChild(badge);
+			host.appendChild(copy);
+
+			host.parentNode.insertBefore(badge, host.nextSibling);
+			badge.classList.add('viewcounter-sr-only');
 			badge.setAttribute('data-vc-placed', '1');
 		});
 	}

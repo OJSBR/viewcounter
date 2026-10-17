@@ -19,8 +19,11 @@
  * hook location.
  *
  * Counts come from the statistics service (publicationStats) and are cached
- * per submission for 24 hours. On list pages (issue TOC, journal home, search)
- * the cache is primed in bulk with a single grouped query per metric type.
+ * per submission for 24 hours. Downloads are galley downloads only, the same
+ * number as Statistics > Articles. On list pages (issue TOC, journal home,
+ * search, category) the cache is primed in bulk with a single grouped query
+ * per metric type. When the counts cannot be read the error is logged and no
+ * badge is shown.
  */
 
 namespace APP\plugins\generic\viewcounter;
@@ -43,7 +46,7 @@ class ViewcounterPlugin extends GenericPlugin
     /** Cache lifetime for the per-submission counts, in seconds (24 h). */
     public const CACHE_TTL = 60 * 60 * 24;
 
-    /** @var array<int,array{views:int,downloads:int}> Per-request memo of the counts. */
+    /** @var array<int,array{views:int,downloads:int}|false> Per-request memo of the counts (false: could not be read). */
     private array $counts = [];
 
     /**
@@ -202,6 +205,9 @@ class ViewcounterPlugin extends GenericPlugin
 
         if ($summary) {
             switch ($template) {
+                case 'frontend/pages/catalogCategory.tpl':
+                    $this->primeCache((array) $templateMgr->getTemplateVars('publishedSubmissions'));
+                    break;
                 case 'frontend/pages/issue.tpl':
                 case 'frontend/pages/indexJournal.tpl':
                     $submissions = [];
@@ -249,7 +255,9 @@ class ViewcounterPlugin extends GenericPlugin
     //
 
     /**
-     * Renders the badge (views | downloads) with icons, tooltips and ARIA labels.
+     * Renders the badge (views | downloads). The numbers and icons are hidden
+     * from assistive technology, which reads a visually hidden text instead
+     * ("Views: 12"). Nothing is rendered when the counts cannot be read.
      *
      * @param string $place 'summary' or 'details'
      * @param bool $relocate Whether the script may move the badge next to the title
@@ -257,6 +265,9 @@ class ViewcounterPlugin extends GenericPlugin
     public function renderBadge($submission, string $place, bool $relocate = true): string
     {
         $counts = $this->getCounts($submission);
+        if ($counts === null) {
+            return '';
+        }
 
         $viewsLabel = htmlspecialchars(__('plugins.generic.viewcounter.views'), ENT_QUOTES);
         $downloadsLabel = htmlspecialchars(__('plugins.generic.viewcounter.downloads'), ENT_QUOTES);
@@ -268,8 +279,24 @@ class ViewcounterPlugin extends GenericPlugin
         $attrs = $relocate ? ' data-vc-place="' . $place . '"' : '';
 
         return '<span class="viewcounter-stats viewcounter-stats--' . $place . '"' . $attrs . '>'
-            . '<span title="' . $viewsLabel . '" aria-label="' . $viewsLabel . ': ' . $counts['views'] . '">' . $eye . ' ' . $counts['views'] . '</span>'
-            . '<span title="' . $downloadsLabel . '" aria-label="' . $downloadsLabel . ': ' . $counts['downloads'] . '">' . $down . ' ' . $counts['downloads'] . '</span>'
+            . self::renderCount($viewsLabel, $eye, $counts['views'])
+            . self::renderCount($downloadsLabel, $down, $counts['downloads'])
+            . '</span>';
+    }
+
+    /**
+     * One count of the badge: icon and number for the eye, a visually hidden
+     * label and number for screen readers.
+     *
+     * @param string $label Already escaped label
+     */
+    protected static function renderCount(string $label, string $icon, int $count): string
+    {
+        // The tooltip sits on the visible part, which assistive technology does
+        // not see: a title on the count itself would be read out as well.
+        return '<span class="viewcounter-count">'
+            . '<span class="viewcounter-visible" aria-hidden="true" title="' . $label . '">' . $icon . ' ' . $count . '</span>'
+            . '<span class="viewcounter-sr">' . $label . ': ' . $count . '</span>'
             . '</span>';
     }
 
@@ -280,11 +307,16 @@ class ViewcounterPlugin extends GenericPlugin
     {
         $request = Application::get()->getRequest();
         $base = $request->getBaseUrl() . '/' . $this->getPluginPath();
-        $templateMgr->addStyleSheet('viewcounter', $base . '/css/viewcounter.css', [
+        // The plugin version, not the application's: the markup and the script
+        // change together, so a browser must not keep the script of a release
+        // that expected another markup.
+        $version = $this->getPluginPath() ? $this->getCurrentVersion() : null;
+        $query = $version ? '?v=' . rawurlencode($version->getVersionString()) : '';
+        $templateMgr->addStyleSheet('viewcounter', $base . '/css/viewcounter.css' . $query, [
             'contexts' => ['frontend'],
             'priority' => TemplateManager::STYLE_SEQUENCE_LAST,
         ]);
-        $templateMgr->addJavaScript('viewcounter', $base . '/js/viewcounter.js', [
+        $templateMgr->addJavaScript('viewcounter', $base . '/js/viewcounter.js' . $query, [
             'contexts' => ['frontend'],
             'priority' => TemplateManager::STYLE_SEQUENCE_LAST,
         ]);
@@ -297,14 +329,16 @@ class ViewcounterPlugin extends GenericPlugin
     /**
      * Views and downloads of one submission, from the request memo, the
      * application cache (24 h) or, as a last resort, two aggregation queries.
+     * Null when they cannot be read: the error is logged and no number is
+     * made up.
      *
-     * @return array{views:int,downloads:int}
+     * @return null|array{views:int,downloads:int}
      */
-    public function getCounts($submission): array
+    public function getCounts($submission): ?array
     {
         $submissionId = (int) $submission->getId();
-        if (isset($this->counts[$submissionId])) {
-            return $this->counts[$submissionId];
+        if (array_key_exists($submissionId, $this->counts)) {
+            return $this->counts[$submissionId] ?: null;
         }
 
         $contextId = (int) $submission->getData('contextId');
@@ -316,7 +350,9 @@ class ViewcounterPlugin extends GenericPlugin
                 ];
             });
         } catch (\Throwable $e) {
-            $counts = ['views' => 0, 'downloads' => 0];
+            error_log('viewcounter: the counts of submission ' . $submissionId . ' could not be read: ' . $e->getMessage());
+            $this->counts[$submissionId] = false;
+            return null;
         }
 
         return $this->counts[$submissionId] = $counts;
@@ -368,6 +404,7 @@ class ViewcounterPlugin extends GenericPlugin
                 Cache::putMany($values, self::CACHE_TTL);
             } catch (\Throwable $e) {
                 // Rendering falls back to per-submission lookups.
+                error_log('viewcounter: the counts of a list could not be read: ' . $e->getMessage());
             }
         }
     }
@@ -399,15 +436,13 @@ class ViewcounterPlugin extends GenericPlugin
     }
 
     /**
-     * Assoc types that count as file downloads (galleys).
+     * Assoc types that count as downloads: galley files only, as in
+     * Statistics > Articles. Supplementary files
+     * (ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER) are left out.
      */
     protected static function fileAssocTypes(): array
     {
-        $types = [Application::ASSOC_TYPE_SUBMISSION_FILE];
-        if (defined(Application::class . '::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER')) {
-            $types[] = Application::ASSOC_TYPE_SUBMISSION_FILE_COUNTER_OTHER;
-        }
-        return $types;
+        return [Application::ASSOC_TYPE_SUBMISSION_FILE];
     }
 
     /**
@@ -415,7 +450,9 @@ class ViewcounterPlugin extends GenericPlugin
      */
     public static function cacheKey(int $submissionId): string
     {
-        return 'viewcounter-' . $submissionId;
+        // v2: since 1.3.1.0 downloads leave supplementary files out, so counts
+        // cached by an earlier release must not be served.
+        return 'viewcounter-v2-' . $submissionId;
     }
 
     /**
