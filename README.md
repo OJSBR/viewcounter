@@ -1,10 +1,10 @@
 # View Counter — OJS plugin
 
 [![OJS](https://img.shields.io/badge/OJS-3.4%20%7C%203.5-brightgreen)](https://pkp.sfu.ca/ojs/)
-[![Version](https://img.shields.io/badge/version-1.3.1.0-blue)](version.xml)
+[![Version](https://img.shields.io/badge/version-5.0.0.0-blue)](version.xml)
 [![License](https://img.shields.io/badge/license-GPL--3.0-lightgrey)](LICENSE)
 
-**⬇️ Install package:** [OJS 3.5](https://github.com/OJSBR/viewcounter/releases/download/1.3.1.0/viewcounter-1.3.1.0.tar.gz) · [OJS 3.4](https://github.com/OJSBR/viewcounter/releases/download/1.1.2.0/viewcounter-1.1.2.0.tar.gz) — or browse all [Releases](../../releases).
+**⬇️ Install package:** [OJS 3.5](https://github.com/OJSBR/viewcounter/releases/download/5.0.0.0/viewcounter-5.0.0.0.tar.gz) · [OJS 3.4](https://github.com/OJSBR/viewcounter/releases/download/4.0.0.0/viewcounter-4.0.0.0.tar.gz) — or browse all [Releases](../../releases).
 
 A generic plugin for **Open Journal Systems (OJS)** that displays each article's
 **abstract views** and **downloads** (galley downloads, the same number as Statistics ›
@@ -24,8 +24,8 @@ icons with a tooltip near the title.
 
 | OJS version | Branch | Plugin release |
 |-------------|--------|----------------|
-| OJS 3.5.x   | [`stable-3_5_0`](../../tree/stable-3_5_0) *(default)* | 1.3.1.0 |
-| OJS 3.4.x   | [`stable-3_4_0`](../../tree/stable-3_4_0) | 1.1.2.0 |
+| OJS 3.5.x   | [`stable-3_5_0`](../../tree/stable-3_5_0) *(default)* | 5.0.0.0 |
+| OJS 3.4.x   | [`stable-3_4_0`](../../tree/stable-3_4_0) | 4.0.0.0 |
 
 Pick the branch matching your OJS version. Each branch is installable as-is.
 
@@ -144,8 +144,8 @@ forma discreta, com ícones e tooltip próximos ao título.
 
 | Versão do OJS | Branch | Release do plugin |
 |---------------|--------|-------------------|
-| OJS 3.5.x     | `stable-3_5_0` *(padrão)* | 1.3.1.0 |
-| OJS 3.4.x     | `stable-3_4_0` | 1.1.2.0 |
+| OJS 3.5.x     | `stable-3_5_0` *(padrão)* | 5.0.0.0 |
+| OJS 3.4.x     | `stable-3_4_0` | 4.0.0.0 |
 
 ### Instalação
 
